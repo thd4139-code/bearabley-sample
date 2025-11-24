@@ -26,13 +26,10 @@
       color: #3e3e3e;
     }
 
-    /* 상단띠 */
     .top-banner {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
+      top: 0; left: 0;
+      width: 100%; height: 50px;
       background-color: #59351D;
       color: #ffffff;
       display: flex;
@@ -44,16 +41,13 @@
       font-size: 16px;
       font-weight: 700;
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 50%; transform: translateX(-50%);
     }
     .banner-menu {
       position: absolute;
-      right: 24px;
-      top: 50%;
+      right: 24px; top: 50%;
       transform: translateY(-50%);
-      display: flex;
-      gap: 20px;
+      display: flex; gap: 20px;
     }
     .banner-menu span {
       color: #fff;
@@ -62,43 +56,32 @@
       user-select: none;
     }
 
-    /* 장바구니 */
-    #cart-icon {
-      position: relative;
-    }
+    #cart-icon { position: relative; }
     #cart-icon::after {
       content: attr(data-count);
       display: none;
-      background: #D64545;
-      color: #fff;
+      background: #D64545; color: #fff;
       border-radius: 50%;
-      width: 16px;
-      height: 16px;
-      font-size: 10px;
+      width: 16px; height: 16px;
+      font-size: 10px; line-height: 16px;
       text-align: center;
-      line-height: 16px;
-      position: absolute;
-      top: -6px;
-      right: -10px;
+      position: absolute; top: -6px; right: -10px;
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* 통일된 전체 폭 */
+    /* 전체 폭 */
     .container {
-      max-width: 1250px; /* ★ 상품 가로폭 늘림 */
+      max-width: 1300px;   /* ★ 상품 가로 더 넓게 */
       margin: 0 auto;
       padding: 0 40px;
     }
 
-    /* 로고 */
     .hero {
       text-align: center;
       padding: 12px 0 4px;
       cursor: pointer;
     }
-    .hero img {
-      max-width: 150px;
-    }
+    .hero img { max-width: 150px; }
 
     /* GIF */
     .gif-wrapper {
@@ -110,7 +93,6 @@
       display: block;
     }
 
-    /* 메뉴 */
     .subnav {
       text-align: center;
       margin-top: 45px;
@@ -124,7 +106,6 @@
       text-decoration: none;
     }
 
-    /* ALL */
     .category-label {
       text-align: center;
       margin-top: 20px;
@@ -133,16 +114,13 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* 상품 컨트롤 */
     .product-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 40px auto 0;
     }
-    .product-controls b {
-      color: #59351D;
-    }
+    .product-controls b { color: #59351D; }
 
     select {
       padding: 10px 14px;
@@ -161,16 +139,16 @@
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 48px;                 /* 상품 간 간격 증가 */
+      gap: 20px;   /* ★★★ 상품 사이 간격 줄임 */
       margin-top: 40px;
-      max-width: 1250px;
-      margin: 0 auto 260px;
+      max-width: 1300px;
+      margin: 0 auto 300px;   /* ★ 푸터 위 여백 크게 */
     }
 
     .product .thumb {
       width: 100%;
       height: 0;
-      padding-top: 72%;          /* ★ 늘어난 가로폭 기반 적절한 직사각형 비율 */
+      padding-top: 95%;    /* ★ 세로 길게 */
       background-size: cover;
       background-position: center;
       background-color: #fff;
@@ -179,11 +157,9 @@
       border-radius: 4px;
     }
 
-    /* 장바구니 hover */
     .cart-icon {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 130px !important;
       height: 130px !important;
@@ -198,9 +174,7 @@
       width: 70px !important;
       height: 70px !important;
     }
-    .product:hover .cart-icon {
-      display: flex;
-    }
+    .product:hover .cart-icon { display: flex; }
 
     .name {
       font-size: 15px;
@@ -213,12 +187,11 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* footer */
     footer {
       font-family: Pretendard;
       font-size: 14px;
       color: #666;
-      padding-bottom: 100px;   /* ★ 아래 여백 확실히 확보 */
+      padding-bottom: 120px;   /* ★ footer 아래 여백 확보 */
     }
 
     .footer-links {
@@ -226,7 +199,6 @@
       gap: 55px;
       margin-bottom: 35px;
     }
-
     .footer-links a {
       color: #111 !important;
       text-decoration: none !important;
@@ -237,98 +209,130 @@
 
 <body>
 
-  <header class="top-banner">
-    <div class="banner-text">You've got a friend with me</div>
-    <div class="banner-menu">
-      <span>Join</span>
-      <span id="cart-icon" data-count="0">Cart</span>
-      <span>Login</span>
-    </div>
-  </header>
+<header class="top-banner">
+  <div class="banner-text">You've got a friend with me</div>
+  <div class="banner-menu">
+    <span>Join</span>
+    <span id="cart-icon" data-count="0">Cart</span>
+    <span>Login</span>
+  </div>
+</header>
 
-  <!-- 로고 -->
-  <section class="hero" onclick="scrollToTop()">
-    <img src="프로필.png">
-  </section>
+<section class="hero" onclick="scrollToTop()">
+  <img src="프로필.png">
+</section>
 
-  <div class="container">
+<div class="container">
 
-    <!-- GIF -->
-    <div class="gif-wrapper">
-      <img src="eccc75d0634727c3012ea8d41b9d34c3.gif">
-    </div>
-
-    <!-- 메뉴 -->
-    <div class="subnav">
-      <a>We</a> <a>All</a> <a>Fabric</a> <a>Gift</a> <a>Obge</a> <a>Plush</a>
-    </div>
-
-    <div class="category-label">All</div>
-
-    <!-- 상품 컨트롤 -->
-    <div class="product-controls">
-      <div>All Product <b>6</b></div>
-      <select>
-        <option>신상품</option>
-        <option>상품명</option>
-        <option>낮은가격</option>
-        <option>높은가격</option>
-        <option>주문 많은 순</option>
-      </select>
-    </div>
-
-    <!-- 상품들 -->
-    <section class="products">
-      <div class="product"><div class="thumb" style="background-image:url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 에코백</div><div class="price">32,000원</div></div>
-
-      <div class="product"><div class="thumb" style="background-image:url('2c524c66-8576-4970-940a-7efe997f1cf1.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">해피 베어 테이블 매트</div><div class="price">15,500원</div></div>
-
-      <div class="product"><div class="thumb" style="background-image:url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 마우스패드</div><div class="price">9,900원</div></div>
-
-      <div class="product"><div class="thumb" style="background-image:url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">테디베어 머그컵</div><div class="price">14,000원</div></div>
-
-      <div class="product"><div class="thumb" style="background-image:url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 키친볼 세트</div><div class="price">27,500원</div></div>
-
-      <div class="product"><div class="thumb" style="background-image:url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">우드 베어 피규어</div><div class="price">19,800원</div></div>
-    </section>
-
+  <div class="gif-wrapper">
+    <img src="eccc75d0634727c3012ea8d41b9d34c3.gif">
   </div>
 
-  <!-- footer -->
-  <footer class="container">
-    <div class="footer-links">
-      <a>Agreement</a>
-      <a>Privacy</a>
-      <a>Guide</a>
-      <a style="font-weight:bold;">Instagram</a>
+  <div class="subnav">
+    <a>We</a> <a>All</a> <a>Fabric</a> <a>Gift</a> <a>Obge</a> <a>Plush</a>
+  </div>
+
+  <div class="category-label">All</div>
+
+  <div class="product-controls">
+    <div>All Product <b>6</b></div>
+    <select>
+      <option>신상품</option>
+      <option>상품명</option>
+      <option>낮은가격</option>
+      <option>높은가격</option>
+      <option>주문 많은 순</option>
+    </select>
+  </div>
+
+  <section class="products">
+
+    <div class="product">
+      <div class="thumb" style="background-image:url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');">
+        <div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div>
+      </div>
+      <div class="name">베어 에코백</div>
+      <div class="price">32,000원</div>
     </div>
 
-    <div style="margin-top:35px; line-height:1.9; font-size:12px;">
-      Company : Bearabley &nbsp;&nbsp;&nbsp;
-      Owner : 대표 관리자 &nbsp;&nbsp;&nbsp;
-      Business License : 000-00-00000 &nbsp;&nbsp;&nbsp;
-      Online Order License : 제0000-서울-0000호<br>
-      CS : 010-1234-5678 &nbsp;&nbsp;&nbsp;
-      Address : 서울 용산구 한강대로 405 (동자동)<br>
-      Personal Information Officer : 홍길동 (not_yet@naver.com)
+    <div class="product">
+      <div class="thumb" style="background-image:url('2c524c66-8576-4970-940a-7efe997f1cf1.png');">
+        <div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div>
+      </div>
+      <div class="name">해피 베어 테이블 매트</div>
+      <div class="price">15,500원</div>
     </div>
 
-    <div style="margin-top:25px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
-  </footer>
+    <div class="product">
+      <div class="thumb" style="background-image:url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');">
+        <div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div>
+      </div>
+      <div class="name">베어 마우스패드</div>
+      <div class="price">9,900원</div>
+    </div>
 
-  <script>
-    let cartCount = 0;
-    function addToCart() {
-      cartCount++;
-      const cartIcon = document.getElementById('cart-icon');
-      cartIcon.classList.add('has-items');
-      cartIcon.setAttribute('data-count', cartCount);
-    }
+    <div class="product">
+      <div class="thumb" style="background-image:url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');">
+        <div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div>
+      </div>
+      <div class="name">테디베어 머그컵</div>
+      <div class="price">14,000원</div>
+    </div>
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+    <div class="product">
+      <div class="thumb" style="background-image:url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');">
+        <div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div>
+      </div>
+      <div class="name">베어 키친볼 세트</div>
+      <div class="price">27,500원</div>
+    </div>
+
+    <div class="product">
+      <div class="thumb" style="background-image:url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');">
+        <div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div>
+      </div>
+      <div class="name">우드 베어 피규어</div>
+      <div class="price">19,800원</div>
+    </div>
+
+  </section>
+
+</div>
+
+<footer class="container">
+  <div class="footer-links">
+    <a>Agreement</a>
+    <a>Privacy</a>
+    <a>Guide</a>
+    <a style="font-weight:bold;">Instagram</a>
+  </div>
+
+  <div style="margin-top:35px; line-height:1.9; font-size:12px;">
+    Company : Bearabley &nbsp;&nbsp;&nbsp;
+    Owner : 대표 관리자 &nbsp;&nbsp;&nbsp;
+    Business License : 000-00-00000 &nbsp;&nbsp;&nbsp;
+    Online Order License : 제0000-서울-0000호<br>
+    CS : 010-1234-5678 &nbsp;&nbsp;&nbsp;
+    Address : 서울 용산구 한강대로 405 (동자동)<br>
+    Personal Information Officer : 홍길동 (not_yet@naver.com)
+  </div>
+
+  <div style="margin-top:25px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
+</footer>
+
+<script>
+  let cartCount = 0;
+  function addToCart() {
+    cartCount++;
+    const cartIcon = document.getElementById('cart-icon');
+    cartIcon.classList.add('has-items');
+    cartIcon.setAttribute('data-count', cartCount);
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
 
 </body>
 </html>
