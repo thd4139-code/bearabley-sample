@@ -183,8 +183,16 @@
       background: rgba(255, 255, 255, 0.5);
     }
 
+    .product .cart-icon img {
+      width: 40px !important;
+      height: 40px !important;
+      object-fit: contain;
+    }
+
     .product:hover .cart-icon {
-      display: block;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
     }
 
     .name {
@@ -199,9 +207,10 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
+    /* 유튜브 영상 위치를 All 위로 배치하는 섹션 */
     .video-section {
       max-width: 1300px;
-      margin: 60px auto 0;
+      margin: 40px auto 0;
       padding: 0 40px;
     }
 
@@ -226,6 +235,23 @@
       margin: 0 auto;
       font-family: 'Pretendard', sans-serif !important;
     }
+
+    /* footer 링크 색 고정 */
+    footer a,
+    footer a:visited,
+    footer a:hover,
+    footer a:active {
+      color: #111 !important;
+      text-decoration: none !important;
+      cursor: default !important;
+    }
+
+    /* select 기본 폰트 유지 */
+    select {
+      font-family: system-ui, sans-serif !important;
+      appearance: none;
+    }
+
   </style>
 </head>
 
@@ -239,6 +265,17 @@
       <span>Login</span>
     </div>
   </header>
+
+  <!-- 유튜브를 All 위로 이동 -->
+  <section class="video-section">
+    <div class="video-wrapper">
+      <iframe id="yt-video"
+        src="https://www.youtube.com/embed/Ob1OF963q7I?enablejsapi=1&mute=1&playsinline=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen></iframe>
+    </div>
+  </section>
 
   <section class="hero" onclick="scrollToTop()">
     <img src="프로필.png" alt="Bear Icon">
@@ -268,16 +305,6 @@
     <div class="product"><div class="thumb" style="background-image: url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">테디베어 머그컵</div><div class="price">14,000원</div></div>
     <div class="product"><div class="thumb" style="background-image: url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 키친볼 세트</div><div class="price">27,500원</div></div>
     <div class="product"><div class="thumb" style="background-image: url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">우드 베어 피규어</div><div class="price">19,800원</div></div>
-  </section>
-
-  <section class="video-section">
-    <div class="video-wrapper">
-      <iframe id="yt-video"
-        src="https://www.youtube.com/embed/Ob1OF963q7I?enablejsapi=1&playsinline=1"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-    </div>
   </section>
 
   <footer>
