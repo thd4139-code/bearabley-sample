@@ -104,22 +104,20 @@
       text-decoration: none;
     }
 
-    /* ALL */
+    /* ★ 메뉴(subnav) → All(category) 간격 2배 */
     .category-label {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 70px; /* 기존 20 → 70 */
       font-size: 13px;
       color: #555;
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* ALL → 상품컨트롤 간격 2배 */
     .product-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      margin-top: 60px;    /* 기존 40 → 60 */
+      margin-top: 60px;
       margin-bottom: 40px;
     }
     .product-controls b { color: #59351D; }
@@ -146,6 +144,7 @@
       margin: 0 auto 300px;
     }
 
+    /* ★ 상품 이미지 */
     .product .thumb {
       width: 100%;
       height: 0;
@@ -154,11 +153,23 @@
       background-position: center;
       background-color: #fff;
 
-      margin-bottom: 40px; /* 이미지→가격 간격 확장 */
+      margin-bottom: 8px;  /* ★★ 이미지 → 상품명 붙이기 (기존 40 → 8) */
 
       position: relative;
-
       border-radius: 0;
+    }
+
+    /* ★ 상품명 아래 → 가격 간격 크게 띄움 */
+    .name {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 18px;  /* 기존 6 → 18 */
+    }
+
+    .price {
+      font-size: 14px;
+      color: #555;
+      font-family: 'Cafe24SsurroundAir';
     }
 
     .cart-icon {
@@ -179,18 +190,6 @@
       height: 70px !important;
     }
     .product:hover .cart-icon { display: flex; }
-
-    .name {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .price {
-      font-size: 14px;
-      color: #555;
-      font-family: 'Cafe24SsurroundAir';
-    }
 
     footer {
       font-family: Pretendard;
@@ -252,6 +251,7 @@
 
   <section class="products">
 
+    <!-- product 반복 동일 -->
     <div class="product">
       <div class="thumb" style="background-image:url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');">
         <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
