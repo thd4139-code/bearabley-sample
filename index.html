@@ -9,205 +9,102 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css" />
 
   <style>
-    @font-face {
-      font-family: 'Cafe24Ssurround';
-      src: url('Cafe24Ssurround-v2.0.ttf');
-    }
-    @font-face {
-      font-family: 'Cafe24SsurroundAir';
-      src: url('Cafe24SsurroundAir-v1.1.ttf');
+    @font-face { font-family: 'Cafe24Ssurround'; src: url('Cafe24Ssurround-v2.0.ttf'); }
+    @font-face { font-family: 'Cafe24SsurroundAir'; src: url('Cafe24SsurroundAir-v1.1.ttf'); }
+
+    body{
+      margin:0;
+      padding-top:50px;
+      background:#FFF8DE;
+      font-family:'Cafe24Ssurround','Cafe24SsurroundAir',sans-serif;
+      color:#3e3e3e;
     }
 
-    body {
-      margin: 0;
-      padding-top: 50px;
-      background-color: #FFF8DE;
-      font-family: 'Cafe24Ssurround', 'Cafe24SsurroundAir', sans-serif;
-      color: #3e3e3e;
+    .top-banner{
+      position:fixed;top:0;left:0;width:100%;height:50px;
+      background:#59351D;color:#fff;
+      display:flex;justify-content:center;align-items:center;z-index:1000;
+    }
+    .banner-text{font-size:16px;font-weight:700;}
+    .banner-menu{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:flex;gap:20px;}
+    .banner-menu span{color:#fff;font-weight:700;}
+
+    .container{max-width:1300px;margin:0 auto;padding:0 40px;}
+
+    .hero{text-align:center;padding:12px 0 4px;cursor:pointer;}
+    .hero img{max-width:150px;}
+
+    .gif-wrapper{margin:12px auto 0;width:100%;}
+    .gif-wrapper img{width:100%;display:block;}
+
+    .subnav{
+      text-align:center;
+      margin-top:45px;
+      margin-bottom:70px;
+    }
+    .subnav a{
+      margin:0 14px;
+      font-size:16px;font-weight:700;
+      color:#5C4A1D;text-decoration:none;
     }
 
-    .top-banner {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 50px;
-      background-color: #59351D;
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .banner-text {
-      font-size: 16px;
-      font-weight: 700;
-      position: absolute;
-      left: 50%; transform: translateX(-50%);
-    }
-    .banner-menu {
-      position: absolute;
-      right: 24px; top: 50%;
-      transform: translateY(-50%);
-      display: flex; gap: 20px;
-    }
-    .banner-menu span {
-      color: #fff;
-      font-weight: 700;
-      cursor: default;
-      user-select: none;
+    /* ★ 메뉴 → All 간격 크게 */
+    .category-label{
+      text-align:center;
+      margin-top:140px;  /* ★★ 언니 요청 반영 */
+      font-size:13px;
+      color:#555;
+      font-family:'Cafe24SsurroundAir';
     }
 
-    #cart-icon { position: relative; }
-    #cart-icon::after {
-      content: attr(data-count);
-      display: none;
-      background: #D64545; color: #fff;
-      border-radius: 50%;
-      width: 16px; height: 16px;
-      font-size: 10px; line-height: 16px;
-      text-align: center;
-      position: absolute; top: -6px; right: -10px;
-    }
-    #cart-icon.has-items::after { display: inline-block; }
-
-    .container {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 40px;
+    .product-controls{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-top:60px;margin-bottom:40px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 12px 0 4px;
-      cursor: pointer;
-    }
-    .hero img { max-width: 150px; }
-
-    .gif-wrapper {
-      margin: 12px auto 0;
-      width: 100%;
-    }
-    .gif-wrapper img {
-      width: 100%;
-      display: block;
+    select{
+      padding:10px 14px;border:1px solid #ccc;border-radius:6px;
+      background:#fff;
+      appearance:none;
+      background-image:url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 20 20' width='12' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>");
+      background-repeat:no-repeat;background-position:right 12px center;
     }
 
-    .subnav {
-      text-align: center;
-      margin-top: 45px;
-      margin-bottom: 70px;
-    }
-    .subnav a {
-      margin: 0 14px;
-      font-size: 16px;
-      font-weight: 700;
-      color: #5C4A1D;
-      text-decoration: none;
+    .products{
+      display:grid;grid-template-columns:repeat(3,1fr);
+      gap:20px;margin-top:50px;
+      max-width:1300px;margin:0 auto 300px;
     }
 
-    /* ★ 메뉴(subnav) → All(category) 간격 2배 */
-    .category-label {
-      text-align: center;
-      margin-top: 70px; /* 기존 20 → 70 */
-      font-size: 13px;
-      color: #555;
-      font-family: 'Cafe24SsurroundAir';
+    /* ★ 이미지 → 상품명 아주 가깝게 */
+    .product .thumb{
+      width:100%;height:0;padding-top:115%;
+      background-size:cover;background-position:center;background-color:#fff;
+      margin-bottom:8px;  /* ★★ 붙임 */
+      position:relative;border-radius:0;
     }
 
-    .product-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 60px;
-      margin-bottom: 40px;
-    }
-    .product-controls b { color: #59351D; }
-
-    select {
-      padding: 10px 14px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-family: Pretendard, sans-serif !important;
-      appearance: none;
-      background: #fff;
-      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 20 20' width='12' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      cursor: pointer;
+    /* ★ 상품명 → 가격 매우 좁게 */
+    .name{
+      font-size:15px;font-weight:700;
+      margin-bottom:4px; /* ★★ 촘촘하게 */
     }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 50px;
-      max-width: 1300px;
-      margin: 0 auto 300px;
+    /* ★ 가격 밑으로 넓은 빈공간 */
+    .price{
+      font-size:14px;color:#555;
+      font-family:'Cafe24SsurroundAir';
+      margin-bottom:40px; /* ★★ 언니가 진짜 원한 부분 */
     }
 
-    /* ★ 상품 이미지 */
-    .product .thumb {
-      width: 100%;
-      height: 0;
-      padding-top: 115%;
-      background-size: cover;
-      background-position: center;
-      background-color: #fff;
-
-      margin-bottom: 8px;  /* ★★ 이미지 → 상품명 붙이기 (기존 40 → 8) */
-
-      position: relative;
-      border-radius: 0;
+    footer{
+      font-family:Pretendard;font-size:14px;color:#666;
+      padding-bottom:120px;
     }
-
-    /* ★ 상품명 아래 → 가격 간격 크게 띄움 */
-    .name {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 18px;  /* 기존 6 → 18 */
+    .footer-links{
+      display:flex;gap:55px;margin-bottom:35px;
     }
-
-    .price {
-      font-size: 14px;
-      color: #555;
-      font-family: 'Cafe24SsurroundAir';
-    }
-
-    .cart-icon {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 130px !important;
-      height: 130px !important;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
-    .cart-icon img {
-      width: 70px !important;
-      height: 70px !important;
-    }
-    .product:hover .cart-icon { display: flex; }
-
-    footer {
-      font-family: Pretendard;
-      font-size: 14px;
-      color: #666;
-      padding-bottom: 120px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 55px;
-      margin-bottom: 35px;
-    }
-    .footer-links a {
-      color: #111 !important;
-      text-decoration: none !important;
-      cursor: default !important;
-    }
+    .footer-links a{text-decoration:none;color:#111;}
   </style>
 </head>
 
@@ -216,9 +113,7 @@
 <header class="top-banner">
   <div class="banner-text">You've got a friend with me</div>
   <div class="banner-menu">
-    <span>Join</span>
-    <span id="cart-icon" data-count="0">Cart</span>
-    <span>Login</span>
+    <span>Join</span><span id="cart-icon">Cart</span><span>Login</span>
   </div>
 </header>
 
@@ -251,51 +146,39 @@
 
   <section class="products">
 
-    <!-- product 반복 동일 -->
+    <!-- 상품들 동일 구조 -->
     <div class="product">
-      <div class="thumb" style="background-image:url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');">
-        <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
-      </div>
+      <div class="thumb" style="background-image:url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');"></div>
       <div class="name">베어 에코백</div>
       <div class="price">32,000원</div>
     </div>
 
     <div class="product">
-      <div class="thumb" style="background-image:url('2c524c66-8576-4970-940a-7efe997f1cf1.png');">
-        <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
-      </div>
+      <div class="thumb" style="background-image:url('2c524c66-8576-4970-940a-7efe997f1cf1.png');"></div>
       <div class="name">해피 베어 테이블 매트</div>
       <div class="price">15,500원</div>
     </div>
 
     <div class="product">
-      <div class="thumb" style="background-image:url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');">
-        <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
-      </div>
+      <div class="thumb" style="background-image:url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');"></div>
       <div class="name">베어 마우스패드</div>
       <div class="price">9,900원</div>
     </div>
 
     <div class="product">
-      <div class="thumb" style="background-image:url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');">
-        <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
-      </div>
+      <div class="thumb" style="background-image:url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');"></div>
       <div class="name">테디베어 머그컵</div>
       <div class="price">14,000원</div>
     </div>
 
     <div class="product">
-      <div class="thumb" style="background-image:url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');">
-        <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
-      </div>
+      <div class="thumb" style="background-image:url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');"></div>
       <div class="name">베어 키친볼 세트</div>
       <div class="price">27,500원</div>
     </div>
 
     <div class="product">
-      <div class="thumb" style="background-image:url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');">
-        <div class="cart-icon"><img src="shopping-basket-white-icon.png"></div>
-      </div>
+      <div class="thumb" style="background-image:url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"></div>
       <div class="name">우드 베어 피규어</div>
       <div class="price">19,800원</div>
     </div>
@@ -306,29 +189,12 @@
 
 <footer class="container">
   <div class="footer-links">
-    <a>Agreement</a>
-    <a>Privacy</a>
-    <a>Guide</a>
-    <a style="font-weight:bold;">Instagram</a>
+    <a>Agreement</a><a>Privacy</a><a>Guide</a><a style="font-weight:bold;">Instagram</a>
   </div>
-
-  <div style="margin-top:20px; line-height:1.9; font-size:12px;">
-    Company : Bearabley &nbsp;&nbsp;&nbsp;
-    Owner : 대표 관리자 &nbsp;&nbsp;&nbsp;
-    Business License : 000-00-00000 &nbsp;&nbsp;&nbsp;
-    Online Order License : 제0000-서울-0000호<br>
-    CS : 010-1234-5678 &nbsp;&nbsp;&nbsp;
-    Address : 서울 용산구 한강대로 405 (동자동)<br>
-    Personal Information Officer : 홍길동 (not_yet@naver.com)
-  </div>
-
-  <div style="margin-top:25px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
 </footer>
 
 <script>
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'});}
 </script>
 
 </body>
