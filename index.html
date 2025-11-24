@@ -160,14 +160,18 @@
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 35px;
+      gap: 36px;
       margin-top: 40px;
+      padding: 20px 20px;       /* 좌우 여백 확 줄임 → 사진 커짐 */
+      max-width: 1500px;        /* ★ 가로폭 크게 해서 이미지 전체 확대됨 */
+      margin: 0 auto 260px;
     }
 
-    /* 5:6 박스 */
+
     .product .thumb {
       width: 100%;
-      aspect-ratio: 5 / 6;
+      height: auto;             /* ★ 세로비율 자유 */
+      padding-top: 70%;         /* ★ 70% 정도의 높이 → 깔끔한 직사각형 */
       background-size: cover;
       background-position: center;
       background-color: #fff;
@@ -219,7 +223,7 @@
       font-family: Pretendard;
       font-size: 14px;
       color: #666;
-      padding-bottom: 60px;
+      padding-bottom: 80px;
     }
 
     .footer-links {
