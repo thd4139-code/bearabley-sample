@@ -26,7 +26,7 @@
       color: #3e3e3e;
     }
 
-    /* 상단 */
+    /* ======================= 상단 ======================= */
     .top-banner {
       position: fixed;
       top: 0; left: 0;
@@ -38,17 +38,41 @@
       align-items: center;
       z-index: 1000;
     }
+
+    /* ★ 왼쪽 메뉴버튼 아이콘 */
+    .side-menu-btn {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+    }
+
+    .side-menu-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
     .banner-text {
       font-size: 16px;
       font-weight: 700;
       position: absolute;
       left: 50%; transform: translateX(-50%);
     }
+
     .banner-menu {
       position: absolute;
       right: 24px; top: 50%;
       transform: translateY(-50%);
       display: flex; gap: 20px;
+    }
+
+    /* ★ 우측 상단 메뉴 포인터 적용 */
+    .banner-menu span {
+      cursor: pointer;
     }
 
     #cart-icon { position: relative; }
@@ -67,7 +91,42 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* 가로폭 조정 */
+    /* ======================= 사이드 메뉴 슬라이드 ======================= */
+    .side-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 260px;
+      height: 100%;
+      background: #FFF8DE;
+      box-shadow: 3px 0 12px rgba(0,0,0,0.15);
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      z-index: 2000;
+      padding: 40px 24px;
+    }
+
+    .side-menu.open {
+      transform: translateX(0);
+    }
+
+    .side-menu a {
+      display: block;
+      margin-bottom: 22px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #5C4A1D;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .side-menu-close {
+      font-size: 14px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* ======================= 컨테이너 ======================= */
     .container {
       max-width: 1140px;
       margin: 0 auto;
@@ -90,8 +149,9 @@
     .subnav {
       text-align: center;
       margin-top: 45px;
-      margin-bottom: 150px; /* ★ 메뉴 목록 ↔ ALL 간격 넓힘 */
+      margin-bottom: 150px; 
     }
+
     .subnav a {
       margin: 0 14px;
       font-size: 16px;
@@ -114,7 +174,9 @@
       align-items: center;
       margin-top: 60px;
       margin-bottom: 40px;
+      font-family: Pretendard;
     }
+
     .product-controls b {
       color: #59351D;
       font-weight: 700;
@@ -149,8 +211,7 @@
       background-size: cover;
       background-position: center;
       background-color: #fff;
-
-      margin-bottom: 14px; /* ★ 사진 → 상품명 간격 */
+      margin-bottom: 14px;
       position: relative;
     }
 
@@ -178,14 +239,14 @@
     }
 
     .price {
-      font-size: 13px;                         /* ★ 한단계 축소 */
+      font-size: 13px;
       color: #555;
       font-family: 'Cafe24SsurroundAir';
-      font-weight: 700;                        /* ★ 슬림체 볼드 1회 */
+      font-weight: 700;
       margin-bottom: 50px;
     }
 
-    /* footer */
+    /* footer (언니가 직접 수정한 부분 유지) */
     footer {
       font-family: Pretendard;
       font-size: 14px;
@@ -195,21 +256,42 @@
 
     .footer-links {
       display: flex;
-      gap: 55px;
-      margin-bottom: 35px;
+      gap: 20px;
+      font-size: 14px;
     }
+
     .footer-links a {
-      color: #111 !important;
-      text-decoration: none !important;
-      cursor: pointer !important;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
 
+<!-- ★ 왼쪽 슬라이드 메뉴 버튼 -->
+<div class="side-menu-btn" onclick="openMenu()">
+  <img src="프로필투명1.png">
+</div>
+
+<!-- ★ 사이드 메뉴 -->
+<div class="side-menu" id="sideMenu">
+  <div class="side-menu-close" onclick="closeMenu()">닫기 ✕</div>
+  <a>We</a>
+  <a>All</a>
+  <a>Fabric</a>
+  <a>Gift</a>
+  <a>Obge</a>
+  <a>Plush</a>
+  <a>QnA</a>
+  <a>About</a>
+  <a>Contact</a>
+</div>
+
 <header class="top-banner">
   <div class="banner-text">You've got a friend with me</div>
+
   <div class="banner-menu">
     <span>Join</span>
     <span id="cart-icon" data-count="0">Cart</span>
@@ -310,19 +392,20 @@
 
 </div>
 
+<!-- 언니가 수정한 footer 그대로 유지 -->
 <footer class="container">
- <style>
+  <style>
     .footer-links {
       display: flex;
       gap: 20px;
       font-size: 14px;
     }
-
     .footer-links a {
       text-decoration: none;
       color: inherit;
     }
   </style>
+
   <div class="footer-links">
     <a>Agreement</a>
     <a>Privacy</a>
@@ -331,8 +414,8 @@
   </div>
 
   <div style="margin-top:20px; line-height:1.9; font-size:12px;">
-    Company : Bearabley &nbsp;      &nbsp; Owner : 대표 관리자 &nbsp;      &nbsp; Business License : 000-00-00000 &nbsp;      &nbsp; Online Order License : 제0000-서울-0000호<br>
-    CS : 010-1234-5678 &nbsp;      &nbsp; Address : 서울 용산구 한강대로 405 (동자동) &nbsp;      &nbsp; Personal Information Officer : 홍길동 (not_yet@naver.com)
+    Company : Bearabley &nbsp; Owner : 대표 관리자 &nbsp; Business License : 000-00-00000 &nbsp; Online Order License : 제0000-서울-0000호<br>
+    CS : 010-1234-5678 &nbsp; Address : 서울 용산구 한강대로 405 (동자동) &nbsp; Personal Information Officer : 홍길동 (not_yet@naver.com)
   </div>
 
   <div style="margin-top:15px; margin-bottom:10px; font-size:12px;">
@@ -342,7 +425,6 @@
 
 <script>
   let cartCount = 0;
-
   function addToCart() {
     cartCount++;
     const cartIcon = document.getElementById('cart-icon');
@@ -352,6 +434,15 @@
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ========== 사이드 메뉴 열기 / 닫기 ========== */
+  function openMenu() {
+    document.getElementById("sideMenu").classList.add("open");
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("open");
   }
 </script>
 
