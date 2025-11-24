@@ -24,9 +24,10 @@
       background-color: #FFF8DE;
       font-family: 'Cafe24Ssurround', 'Cafe24SsurroundAir', sans-serif;
       color: #3e3e3e;
+      overflow-x: hidden;
     }
 
-    /* ======================= 상단 ======================= */
+    /* 상단 */
     .top-banner {
       position: fixed;
       top: 0; left: 0;
@@ -34,45 +35,41 @@
       background-color: #59351D;
       color: #ffffff;
       display: flex;
-      justify-content: center;
       align-items: center;
       z-index: 1000;
     }
 
-    /* ★ 왼쪽 메뉴버튼 아이콘 */
-    .side-menu-btn {
+    /* 좌측 햄버거 버튼 */
+    .side-btn {
       position: absolute;
-      left: 16px;
-      top: 50%;
+      left: 16px; top: 50%;
       transform: translateY(-50%);
+      cursor: pointer;
       width: 26px;
       height: 26px;
-      cursor: pointer;
-    }
-
-    .side-menu-btn img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
     }
 
     .banner-text {
       font-size: 16px;
       font-weight: 700;
       position: absolute;
-      left: 50%; transform: translateX(-50%);
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .banner-menu {
       position: absolute;
       right: 24px; top: 50%;
       transform: translateY(-50%);
-      display: flex; gap: 20px;
+      display: flex; 
+      gap: 20px;
     }
 
-    /* ★ 우측 상단 메뉴 포인터 적용 */
     .banner-menu span {
       cursor: pointer;
+    }
+    .banner-menu span:hover {
+      color: #FFC900;
     }
 
     #cart-icon { position: relative; }
@@ -91,42 +88,7 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* ======================= 사이드 메뉴 슬라이드 ======================= */
-    .side-menu {
-      position: fixed;
-      top: 0; left: 0;
-      width: 260px;
-      height: 100%;
-      background: #FFF8DE;
-      box-shadow: 3px 0 12px rgba(0,0,0,0.15);
-      transform: translateX(-100%);
-      transition: transform 0.35s ease;
-      z-index: 2000;
-      padding: 40px 24px;
-    }
-
-    .side-menu.open {
-      transform: translateX(0);
-    }
-
-    .side-menu a {
-      display: block;
-      margin-bottom: 22px;
-      font-size: 17px;
-      font-weight: 700;
-      color: #5C4A1D;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .side-menu-close {
-      font-size: 14px;
-      margin-bottom: 30px;
-      cursor: pointer;
-      color: #333;
-    }
-
-    /* ======================= 컨테이너 ======================= */
+    /* 가로폭 조정 */
     .container {
       max-width: 1140px;
       margin: 0 auto;
@@ -149,16 +111,19 @@
     .subnav {
       text-align: center;
       margin-top: 45px;
-      margin-bottom: 150px; 
+      margin-bottom: 150px;
     }
-
     .subnav a {
       margin: 0 14px;
       font-size: 16px;
       font-weight: 700;
       color: #5C4A1D;
       text-decoration: none;
-      cursor: default;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .subnav a:hover {
+      color: #FFC900;
     }
 
     .category-label {
@@ -174,9 +139,7 @@
       align-items: center;
       margin-top: 60px;
       margin-bottom: 40px;
-      font-family: Pretendard;
     }
-
     .product-controls b {
       color: #59351D;
       font-weight: 700;
@@ -203,6 +166,8 @@
       margin-top: 50px;
       margin-bottom: 300px;
     }
+
+    .product { cursor: pointer; }
 
     .product .thumb {
       width: 100%;
@@ -246,20 +211,56 @@
       margin-bottom: 50px;
     }
 
-    /* footer (언니가 직접 수정한 부분 유지) */
+    /* 사이드 메뉴 슬라이드 */
+    .side-menu {
+      position: fixed;
+      top: 0; left: -270px;
+      width: 270px;
+      height: 100%;
+      background: #FFF8DE;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+      padding: 60px 25px;
+      transition: 0.3s ease;
+      z-index: 2000;
+    }
+
+    .side-menu.open {
+      left: 0;
+    }
+
+    .side-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .side-menu a {
+      display: block;
+      margin-bottom: 20px;
+      color: #3e3e3e;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .side-menu a:hover {
+      color: #FFC900;
+    }
+
+    /* footer 그대로 */
     footer {
       font-family: Pretendard;
       font-size: 14px;
       color: #666;
       padding-bottom: 120px;
     }
-
     .footer-links {
       display: flex;
       gap: 20px;
       font-size: 14px;
     }
-
     .footer-links a {
       text-decoration: none;
       color: inherit;
@@ -270,14 +271,9 @@
 
 <body>
 
-<!-- ★ 왼쪽 슬라이드 메뉴 버튼 -->
-<div class="side-menu-btn" onclick="openMenu()">
-  <img src="프로필투명1.png">
-</div>
-
-<!-- ★ 사이드 메뉴 -->
+<!-- 사이드 메뉴 -->
 <div class="side-menu" id="sideMenu">
-  <div class="side-menu-close" onclick="closeMenu()">닫기 ✕</div>
+  <div class="side-close" onclick="closeMenu()">✕</div>
   <a>We</a>
   <a>All</a>
   <a>Fabric</a>
@@ -290,6 +286,8 @@
 </div>
 
 <header class="top-banner">
+  <img src="/mnt/data/프로필투명1.png" class="side-btn" onclick="openMenu()">
+
   <div class="banner-text">You've got a friend with me</div>
 
   <div class="banner-menu">
@@ -392,8 +390,8 @@
 
 </div>
 
-<!-- 언니가 수정한 footer 그대로 유지 -->
 <footer class="container">
+
   <style>
     .footer-links {
       display: flex;
@@ -405,7 +403,6 @@
       color: inherit;
     }
   </style>
-
   <div class="footer-links">
     <a>Agreement</a>
     <a>Privacy</a>
@@ -425,6 +422,7 @@
 
 <script>
   let cartCount = 0;
+
   function addToCart() {
     cartCount++;
     const cartIcon = document.getElementById('cart-icon');
@@ -436,7 +434,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  /* ========== 사이드 메뉴 열기 / 닫기 ========== */
   function openMenu() {
     document.getElementById("sideMenu").classList.add("open");
   }
