@@ -42,7 +42,7 @@
     /* 좌측 햄버거 버튼 */
     .side-btn {
       position: absolute;
-      left: 16px; top: 50%;
+      left: 12px; top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
       width: 26px;
@@ -57,11 +57,13 @@
       transform: translateX(-50%);
     }
 
+    /* 우측 상단 메뉴 - 왼쪽으로 이동 */
     .banner-menu {
       position: absolute;
-      right: 24px; top: 50%;
+      right: 60px;  /* 기존보다 왼쪽으로 이동 */
+      top: 50%;
       transform: translateY(-50%);
-      display: flex; 
+      display: flex;
       gap: 20px;
     }
 
@@ -88,7 +90,6 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* 가로폭 조정 */
     .container {
       max-width: 1140px;
       margin: 0 auto;
@@ -167,7 +168,10 @@
       margin-bottom: 300px;
     }
 
-    .product { cursor: pointer; }
+    /* 클릭 가능 범위 최소화 */
+    .product { cursor: default; }
+    .thumb { cursor: pointer; }
+    .name { cursor: pointer; }
 
     .product .thumb {
       width: 100%;
@@ -224,9 +228,7 @@
       z-index: 2000;
     }
 
-    .side-menu.open {
-      left: 0;
-    }
+    .side-menu.open { left: 0; }
 
     .side-close {
       position: absolute;
@@ -249,7 +251,7 @@
       color: #FFC900;
     }
 
-    /* footer 그대로 */
+    /* footer */
     footer {
       font-family: Pretendard;
       font-size: 14px;
@@ -286,7 +288,7 @@
 </div>
 
 <header class="top-banner">
-  <img src="/mnt/data/프로필투명1.png" class="side-btn" onclick="openMenu()">
+  <img src="프로필투명1.png" class="side-btn" onclick="openMenu()">
 
   <div class="banner-text">You've got a friend with me</div>
 
