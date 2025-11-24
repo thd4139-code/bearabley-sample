@@ -67,7 +67,7 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* 가로폭 40px 축소 */
+    /* 가로폭 조정 */
     .container {
       max-width: 1140px;
       margin: 0 auto;
@@ -86,10 +86,11 @@
       display: block;
     }
 
+    /* 메뉴 */
     .subnav {
       text-align: center;
       margin-top: 45px;
-      margin-bottom: 70px;
+      margin-bottom: 90px; /* ★ 메뉴 목록 ↔ ALL 간격 넓힘 */
     }
     .subnav a {
       margin: 0 14px;
@@ -100,16 +101,13 @@
       cursor: default;
     }
 
-    /* 메뉴 아래 ALL 간격 넓힘 유지 */
     .category-label {
       text-align: center;
-      margin-top: 60px;
       font-size: 13px;
       color: #555;
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* ALL → 상품정렬 */
     .product-controls {
       display: flex;
       justify-content: space-between;
@@ -118,7 +116,7 @@
       margin-bottom: 40px;
     }
     .product-controls b {
-      color: #59351D;  /* 숫자 색 복구 */
+      color: #59351D;
       font-weight: 700;
     }
 
@@ -135,7 +133,7 @@
       cursor: pointer;
     }
 
-    /* 상품 카드 가로 간격 좁힘 */
+    /* 상품 카드 */
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -151,9 +149,9 @@
       background-size: cover;
       background-position: center;
       background-color: #fff;
-      margin-bottom: 10px;
+
+      margin-bottom: 14px; /* ★ 사진 → 상품명 간격 */
       position: relative;
-      border-radius: 0;
     }
 
     .cart-icon {
@@ -180,12 +178,14 @@
     }
 
     .price {
-      font-size: 14px;
+      font-size: 13px;                         /* ★ 한단계 축소 */
       color: #555;
-      font-family: 'Cafe24SsurroundAir'; /* 가격 슬림체 복구 */
+      font-family: 'Cafe24SsurroundAir';
+      font-weight: 700;                        /* ★ 슬림체 볼드 1회 */
       margin-bottom: 50px;
     }
 
+    /* footer */
     footer {
       font-family: Pretendard;
       font-size: 14px;
@@ -193,7 +193,6 @@
       padding-bottom: 120px;
     }
 
-    /* ★ footer 링크 복구 */
     .footer-links {
       display: flex;
       gap: 55px;
@@ -202,9 +201,8 @@
     .footer-links a {
       color: #111 !important;
       text-decoration: none !important;
-      cursor: default !important;
+      cursor: pointer !important;
     }
-
   </style>
 </head>
 
@@ -314,7 +312,6 @@
 
 <footer class="container">
 
-  <!-- ★ footer 링크 복구 -->
   <div class="footer-links">
     <a>Agreement</a>
     <a>Privacy</a>
