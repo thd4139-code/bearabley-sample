@@ -33,6 +33,7 @@
       color: #3e3e3e;
     }
 
+    /* 상단띠 */
     .top-banner {
       position: fixed;
       top: 0;
@@ -71,15 +72,15 @@
 
     .banner-menu span {
       color: #ffffff;
-      text-decoration: none;
       font-weight: 700;
       font-size: 14px;
       cursor: default;
       user-select: none;
-      font-family: 'Cafe24Ssurround', sans-serif;
       position: relative;
+      font-family: 'Cafe24Ssurround';
     }
 
+    /* 장바구니 숫자 */
     #cart-icon::after {
       content: attr(data-count);
       display: none;
@@ -100,9 +101,10 @@
       display: inline-block;
     }
 
+    /* 로고 */
     .hero {
       text-align: center;
-      padding: 30px 20px 40px;
+      padding: 30px 20px 10px;
       cursor: pointer;
     }
 
@@ -111,106 +113,10 @@
       height: auto;
     }
 
-    .subnav {
-      text-align: center;
-      margin-top: 10px;
-      margin-bottom: 60px;
-    }
-
-    .subnav a {
-      margin: 0 10px;
-      font-size: 16px;
-      text-decoration: none;
-      color: #5C4A1D;
-      font-weight: 700;
-      font-family: 'Cafe24Ssurround', sans-serif;
-    }
-
-    .category-label {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 13px;
-      color: #555;
-      font-family: 'Cafe24SsurroundAir', sans-serif;
-    }
-
-    .product-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1300px;
-      margin: 90px auto 0;
-      padding: 0 40px;
-      font-size: 14px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 40px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .product {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    .product .thumb {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      background-color: #fff;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      margin-bottom: 14px;
-    }
-
-    .product .cart-icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      border-radius: 50%;
-      display: none;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.5);
-    }
-
-    .product .cart-icon img {
-      width: 40px !important;
-      height: 40px !important;
-      object-fit: contain;
-    }
-
-    .product:hover .cart-icon {
-      display: flex !important;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .name {
-      font-weight: 700;
-      font-size: 15px;
-      font-family: 'Cafe24Ssurround', sans-serif;
-    }
-
-    .price {
-      font-size: 14px;
-      color: #555;
-      font-family: 'Cafe24SsurroundAir';
-    }
-
-    /* 유튜브 영역 */
+    /* 유튜브 */
     .video-section {
       max-width: 1300px;
-      margin: 40px auto 0;
+      margin: 20px auto 20px;
       padding: 0 40px;
     }
 
@@ -225,6 +131,109 @@
       height: 100%;
     }
 
+    /* 메뉴 */
+    .subnav {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+
+    .subnav a {
+      margin: 0 12px;
+      font-size: 16px;
+      color: #5C4A1D;
+      font-weight: 700;
+      font-family: 'Cafe24Ssurround';
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* All 라벨 */
+    .category-label {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #555;
+      font-family: 'Cafe24SsurroundAir';
+    }
+
+    /* 상품 컨트롤 */
+    .product-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1300px;
+      margin: 40px auto 0;
+      padding: 0 40px;
+      font-size: 14px;
+    }
+
+    select {
+      font-family: system-ui, sans-serif !important;
+      appearance: none;
+    }
+
+    /* 상품 목록 */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .product .thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-size: cover;
+      background-position: center;
+      background-color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .product .cart-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      border-radius: 50%;
+      display: none;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+
+    .product .cart-icon img {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .product:hover .cart-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .price {
+      font-size: 14px;
+      color: #555;
+      font-family: 'Cafe24SsurroundAir';
+    }
+
+    /* footer */
     footer {
       text-align: left;
       padding: 40px;
@@ -233,22 +242,28 @@
       color: #666;
       max-width: 1300px;
       margin: 0 auto;
-      font-family: 'Pretendard', sans-serif !important;
+      font-family: 'Pretendard';
     }
 
-    footer a,
-    footer a:visited,
-    footer a:hover,
-    footer a:active {
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
       color: #111 !important;
       text-decoration: none !important;
-      cursor: default !important;
+      cursor: pointer !important;
+      font-weight: 500;
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- 상단띠 -->
   <header class="top-banner">
     <div class="banner-text">Let go and refill with what you love</div>
     <div class="banner-menu">
@@ -258,16 +273,12 @@
     </div>
   </header>
 
-  <!-- 로고 + 메뉴 -->
+  <!-- 로고 -->
   <section class="hero" onclick="scrollToTop()">
     <img src="프로필.png" alt="Bear Icon">
-    <div class="subnav">
-      <a href="#">We</a><a href="#">All</a><a href="#">Fabric</a>
-      <a href="#">Gift</a><a href="#">Obge</a><a href="#">Plush</a>
-    </div>
   </section>
 
-  <!-- 유튜브 (여기로 이동됨) -->
+  <!-- 유튜브 -->
   <section class="video-section">
     <div class="video-wrapper">
       <iframe id="yt-video"
@@ -278,8 +289,20 @@
     </div>
   </section>
 
+  <!-- 메뉴 -->
+  <div class="subnav">
+    <a>We</a>
+    <a>All</a>
+    <a>Fabric</a>
+    <a>Gift</a>
+    <a>Obge</a>
+    <a>Plush</a>
+  </div>
+
+  <!-- All -->
   <div class="category-label">All</div>
 
+  <!-- 상품 컨트롤 -->
   <div class="product-controls">
     <div>All Product <b>6</b></div>
     <select>
@@ -291,8 +314,8 @@
     </select>
   </div>
 
+  <!-- 상품들 -->
   <section class="products">
-    <!-- 기존 제품들 그대로 -->
     <div class="product"><div class="thumb" style="background-image: url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 에코백</div><div class="price">32,000원</div></div>
     <div class="product"><div class="thumb" style="background-image: url('2c524c66-8576-4970-940a-7efe997f1cf1.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">해피 베어 테이블 매트</div><div class="price">15,500원</div></div>
     <div class="product"><div class="thumb" style="background-image: url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 마우스패드</div><div class="price">9,900원</div></div>
@@ -301,19 +324,26 @@
     <div class="product"><div class="thumb" style="background-image: url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">우드 베어 피규어</div><div class="price">19,800원</div></div>
   </section>
 
+  <!-- footer -->
   <footer>
     <div class="footer-links">
-      <a href="#">Agreement</a>
-      <a href="#">Privacy</a>
-      <a href="#">Guide</a>
-      <a href="#" style="font-weight: bold;">Instagram</a>
+      <a>Agreement</a>
+      <a>Privacy</a>
+      <a>Guide</a>
+      <a style="font-weight:bold;">Instagram</a>
     </div>
-    <div style="margin-top: 30px; font-size: 12px;">
-      Company : Bearabley &nbsp;&nbsp;&nbsp; Owner : 대표 관리자<br>
-      CS : 010-1234-5678 &nbsp;&nbsp;&nbsp; Address : 강원도 춘천시 중앙로1277번길 17 (죽림동)<br>
+
+    <div style="margin-top:20px; font-size:12px; line-height:1.8;">
+      Company : Bearabley &nbsp;&nbsp;&nbsp;
+      Owner : 대표 관리자 &nbsp;&nbsp;&nbsp;
+      Business License : 000-00-00000 &nbsp;&nbsp;&nbsp;
+      Online Order License : 제0000-춘천-0000호<br>
+      CS : 010-1234-5678 &nbsp;&nbsp;&nbsp;
+      Address : 강원도 춘천시 중앙로1277번길 17 (죽림동)<br>
       Personal Information Officer : 이은지 (not_yet@naver.com)
     </div>
-    <div style="margin-top: 20px; font-size: 12px;">© 2025 Bearabley. All rights reserved.</div>
+
+    <div style="margin-top:20px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
   </footer>
 
   <script src="https://www.youtube.com/iframe_api"></script>
@@ -332,7 +362,6 @@
     }
 
     let player;
-
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('yt-video', {
         events: { 'onReady': onPlayerReady }
