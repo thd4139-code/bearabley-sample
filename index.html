@@ -12,17 +12,10 @@
     @font-face {
       font-family: 'Cafe24Ssurround';
       src: url('Cafe24Ssurround-v2.0.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'Cafe24Ssurround';
-      src: url('Cafe24Ssurround-v2.0.ttf') format('truetype');
-      font-weight: 700;
     }
     @font-face {
       font-family: 'Cafe24SsurroundAir';
       src: url('Cafe24SsurroundAir-v1.1.ttf') format('truetype');
-      font-weight: 400;
     }
 
     body {
@@ -33,7 +26,7 @@
       color: #3e3e3e;
     }
 
-    /* 상단띠 */
+    /* 상단띠(그대로) */
     .top-banner {
       position: fixed;
       top: 0;
@@ -45,22 +38,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 24px;
-      box-sizing: border-box;
       z-index: 1000;
     }
-
     .banner-text {
-      font-size: 16px;
-      font-weight: 700;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      white-space: nowrap;
-      cursor: default;
-      user-select: none;
+      font-size: 16px;
+      font-weight: 700;
     }
-
     .banner-menu {
       position: absolute;
       right: 24px;
@@ -69,18 +55,12 @@
       display: flex;
       gap: 20px;
     }
-
     .banner-menu span {
-      color: #ffffff;
+      color: #fff;
       font-weight: 700;
-      font-size: 14px;
       cursor: default;
-      user-select: none;
-      position: relative;
-      font-family: 'Cafe24Ssurround';
     }
 
-    /* 장바구니 숫자 */
     #cart-icon::after {
       content: attr(data-count);
       display: none;
@@ -90,60 +70,48 @@
       width: 16px;
       height: 16px;
       font-size: 10px;
-      text-align: center;
       line-height: 16px;
+      text-align: center;
       position: absolute;
       top: -6px;
       right: -10px;
     }
-
-    #cart-icon.has-items::after {
-      display: inline-block;
-    }
+    #cart-icon.has-items::after { display: inline-block; }
 
     /* 로고 */
     .hero {
       text-align: center;
-      padding: 30px 20px 10px;
+      padding: 30px 20px 0;
       cursor: pointer;
     }
-
     .hero img {
       max-width: 160px;
-      height: auto;
     }
 
-    /* 유튜브 */
-    .video-section {
-      max-width: 1300px;
-      margin: 20px auto 20px;
+    /* GIF 섹션 */
+    .gif-section {
+      width: 100%;
       padding: 0 40px;
+      margin: 30px auto 0;
+      max-width: 1300px;
     }
-
-    .video-wrapper {
+    .gif-wrapper img {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background-color: black;
-    }
-
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
+      height: auto;
+      display: block;
     }
 
     /* 메뉴 */
     .subnav {
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 60px;
+      margin-top: 40px;
+      margin-bottom: 80px; /* 크게 띄움 */
     }
-
     .subnav a {
-      margin: 0 12px;
+      margin: 0 14px;
       font-size: 16px;
-      color: #5C4A1D;
       font-weight: 700;
-      font-family: 'Cafe24Ssurround';
+      color: #5C4A1D;
       text-decoration: none;
       cursor: pointer;
     }
@@ -151,113 +119,123 @@
     /* All 라벨 */
     .category-label {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 13px;
       color: #555;
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* 상품 컨트롤 */
+    /* 콤보박스 디자인 */
+    select {
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: Pretendard, sans-serif !important;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='12' viewBox='0 0 20 20' width='12' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 20,0 10,10'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    /* 상품 상단 컨트롤 */
     .product-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: 1300px;
-      margin: 40px auto 0;
+      margin: 50px auto 0; /* all - product controls 간격 크게 */
       padding: 0 40px;
-      font-size: 14px;
-    }
-
-    select {
-      font-family: system-ui, sans-serif !important;
-      appearance: none;
     }
 
     /* 상품 목록 */
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 40px;
       padding: 40px;
       max-width: 1300px;
       margin: 0 auto;
     }
 
-    .product {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-bottom: 40px;
-    }
-
+    /* 상품 박스 (세로 직사각형 / 강제 크롭) */
     .product .thumb {
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 5;        /* 🔥 세로가 긴 직사각형 */
       background-size: cover;
       background-position: center;
       background-color: #fff;
-      margin-bottom: 14px;
+      margin-bottom: 18px;        /* 상품명과 간격 */
     }
 
-    .product .cart-icon {
+    .product {
+      position: relative;
+    }
+
+    .cart-icon {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      padding: 20px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: none;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255,255,255,0.6);
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
     }
-
-    .product .cart-icon img {
-      width: 40px !important;
-      height: 40px !important;
+    .cart-icon img {
+      width: 35px;
+      height: 35px;
     }
-
     .product:hover .cart-icon {
       display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .name {
       font-size: 15px;
       font-weight: 700;
+      margin-bottom: 6px;
     }
-
     .price {
       font-size: 14px;
-      color: #555;
       font-family: 'Cafe24SsurroundAir';
+      color: #555;
     }
 
-    /* footer */
+    /* 푸터 */
     footer {
       text-align: left;
       padding: 40px;
-      background-color: #FFF8DE;
-      font-size: 14px;
-      color: #666;
       max-width: 1300px;
       margin: 0 auto;
       font-family: 'Pretendard';
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* 푸터 위 파니 얼굴 */
+    .footer-icon {
+      width: 20px;
+      display: block;
+      margin: 60px auto 20px; /* 위 여백 크게 */
+      opacity: 0.85;
     }
 
     .footer-links {
       display: flex;
-      gap: 40px;
+      gap: 50px;
       margin-bottom: 20px;
     }
-
     .footer-links a {
       color: #111 !important;
       text-decoration: none !important;
-      cursor: pointer !important;
-      font-weight: 500;
+      cursor: default !important;
     }
-
   </style>
 </head>
 
@@ -275,34 +253,25 @@
 
   <!-- 로고 -->
   <section class="hero" onclick="scrollToTop()">
-    <img src="프로필.png" alt="Bear Icon">
+    <img src="프로필.png">
   </section>
 
-  <!-- 유튜브 -->
-  <section class="video-section">
-    <div class="video-wrapper">
-      <iframe id="yt-video"
-        src="https://www.youtube.com/embed/Ob1OF963q7I?enablejsapi=1&mute=1&playsinline=1"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
+  <!-- GIF -->
+  <section class="gif-section">
+    <div class="gif-wrapper">
+      <img src="eccc75d0634727c3012ea8d41b9d34c3.gif">
     </div>
   </section>
 
   <!-- 메뉴 -->
   <div class="subnav">
-    <a>We</a>
-    <a>All</a>
-    <a>Fabric</a>
-    <a>Gift</a>
-    <a>Obge</a>
-    <a>Plush</a>
+    <a>We</a><a>All</a><a>Fabric</a><a>Gift</a><a>Obge</a><a>Plush</a>
   </div>
 
   <!-- All -->
   <div class="category-label">All</div>
 
-  <!-- 상품 컨트롤 -->
+  <!-- 상품컨트롤 -->
   <div class="product-controls">
     <div>All Product <b>6</b></div>
     <select>
@@ -314,15 +283,23 @@
     </select>
   </div>
 
-  <!-- 상품들 -->
+  <!-- 상품 -->
   <section class="products">
-    <div class="product"><div class="thumb" style="background-image: url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 에코백</div><div class="price">32,000원</div></div>
-    <div class="product"><div class="thumb" style="background-image: url('2c524c66-8576-4970-940a-7efe997f1cf1.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">해피 베어 테이블 매트</div><div class="price">15,500원</div></div>
-    <div class="product"><div class="thumb" style="background-image: url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 마우스패드</div><div class="price">9,900원</div></div>
-    <div class="product"><div class="thumb" style="background-image: url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">테디베어 머그컵</div><div class="price">14,000원</div></div>
-    <div class="product"><div class="thumb" style="background-image: url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 키친볼 세트</div><div class="price">27,500원</div></div>
-    <div class="product"><div class="thumb" style="background-image: url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">우드 베어 피규어</div><div class="price">19,800원</div></div>
+    <div class="product"><div class="thumb" style="background-image:url('e0c1c028-7e4f-4183-895a-211cacd0621e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 에코백</div><div class="price">32,000원</div></div>
+
+    <div class="product"><div class="thumb" style="background-image:url('2c524c66-8576-4970-940a-7efe997f1cf1.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">해피 베어 테이블 매트</div><div class="price">15,500원</div></div>
+
+    <div class="product"><div class="thumb" style="background-image:url('bd9b3f97-8bef-4e19-9e12-dfe7c1716bcc.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 마우스패드</div><div class="price">9,900원</div></div>
+
+    <div class="product"><div class="thumb" style="background-image:url('8948ef60-1ea5-4f6e-82ed-faa80889e33a.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">테디베어 머그컵</div><div class="price">14,000원</div></div>
+
+    <div class="product"><div class="thumb" style="background-image:url('4eba5b60-dd6c-4e3b-a568-5b2f96f85ce2.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">베어 키친볼 세트</div><div class="price">27,500원</div></div>
+
+    <div class="product"><div class="thumb" style="background-image:url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">우드 베어 피규어</div><div class="price">19,800원</div></div>
   </section>
+
+  <!-- 푸터 아이콘 -->
+  <img src="프로필투명.png" class="footer-icon">
 
   <!-- footer -->
   <footer>
@@ -346,8 +323,6 @@
     <div style="margin-top:20px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
   </footer>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-
   <script>
     let cartCount = 0;
     function addToCart() {
@@ -359,26 +334,6 @@
 
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    let player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('yt-video', {
-        events: { 'onReady': onPlayerReady }
-      });
-    }
-
-    function onPlayerReady() {
-      window.addEventListener('scroll', checkVideoPlay);
-    }
-
-    function checkVideoPlay() {
-      const rect = document.getElementById('yt-video').getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        player.unMute();
-        player.playVideo();
-        window.removeEventListener('scroll', checkVideoPlay);
-      }
     }
   </script>
 
