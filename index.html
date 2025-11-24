@@ -83,9 +83,9 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* 전체 콘텐츠 폭 (상품 / 콤보박스 / GIF / 푸터 전부 동일) */
+    /* 통일된 전체 폭 */
     .container {
-      max-width: 1100px; /* 기존보다 축소 */
+      max-width: 1250px; /* ★ 상품 가로폭 늘림 */
       margin: 0 auto;
       padding: 0 40px;
     }
@@ -102,7 +102,7 @@
 
     /* GIF */
     .gif-wrapper {
-      margin: 15px auto 0;
+      margin: 12px auto 0;
       width: 100%;
     }
     .gif-wrapper img {
@@ -113,7 +113,7 @@
     /* 메뉴 */
     .subnav {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 45px;
       margin-bottom: 70px;
     }
     .subnav a {
@@ -133,15 +133,16 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* 콤보박스 & 상품수 */
+    /* 상품 컨트롤 */
     .product-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 40px auto 0;
     }
-
-    .product-controls b { color: #59351D; }
+    .product-controls b {
+      color: #59351D;
+    }
 
     select {
       padding: 10px 14px;
@@ -160,23 +161,22 @@
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
+      gap: 48px;                 /* 상품 간 간격 증가 */
       margin-top: 40px;
-      padding: 20px 20px;       /* 좌우 여백 확 줄임 → 사진 커짐 */
-      max-width: 1500px;        /* ★ 가로폭 크게 해서 이미지 전체 확대됨 */
+      max-width: 1250px;
       margin: 0 auto 260px;
     }
 
-
     .product .thumb {
       width: 100%;
-      height: auto;             /* ★ 세로비율 자유 */
-      padding-top: 70%;         /* ★ 70% 정도의 높이 → 깔끔한 직사각형 */
+      height: 0;
+      padding-top: 72%;          /* ★ 늘어난 가로폭 기반 적절한 직사각형 비율 */
       background-size: cover;
       background-position: center;
       background-color: #fff;
       margin-bottom: 18px;
       position: relative;
+      border-radius: 4px;
     }
 
     /* 장바구니 hover */
@@ -185,8 +185,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 120px !important;
-      height: 120px !important;
+      width: 130px !important;
+      height: 130px !important;
       border-radius: 50%;
       background: rgba(255,255,255,0.6);
       display: none;
@@ -195,8 +195,8 @@
       cursor: pointer;
     }
     .cart-icon img {
-      width: 65px !important;
-      height: 65px !important;
+      width: 70px !important;
+      height: 70px !important;
     }
     .product:hover .cart-icon {
       display: flex;
@@ -213,23 +213,18 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* 상품과 footer 사이 간격 250 */
-    .footer-gap {
-      height: 250px;
-    }
-
     /* footer */
     footer {
       font-family: Pretendard;
       font-size: 14px;
       color: #666;
-      padding-bottom: 80px;
+      padding-bottom: 100px;   /* ★ 아래 여백 확실히 확보 */
     }
 
     .footer-links {
       display: flex;
       gap: 55px;
-      margin-bottom: 35px; /* 요청대로 더 벌림 */
+      margin-bottom: 35px;
     }
 
     .footer-links a {
@@ -268,7 +263,6 @@
       <a>We</a> <a>All</a> <a>Fabric</a> <a>Gift</a> <a>Obge</a> <a>Plush</a>
     </div>
 
-    <!-- ALL -->
     <div class="category-label">All</div>
 
     <!-- 상품 컨트롤 -->
@@ -298,9 +292,6 @@
       <div class="product"><div class="thumb" style="background-image:url('a569cf55-c4d5-4a5c-8e34-600fd5a0f35e.png');"><div class="cart-icon" onclick="addToCart()"><img src="shopping-basket-white-icon.png"></div></div><div class="name">우드 베어 피규어</div><div class="price">19,800원</div></div>
     </section>
 
-    <!-- 상품과 footer 사이 250px 간격 -->
-    <div class="footer-gap"></div>
-
   </div>
 
   <!-- footer -->
@@ -316,13 +307,13 @@
       Company : Bearabley &nbsp;&nbsp;&nbsp;
       Owner : 대표 관리자 &nbsp;&nbsp;&nbsp;
       Business License : 000-00-00000 &nbsp;&nbsp;&nbsp;
-      Online Order License : 제0000-춘천-0000호<br>
+      Online Order License : 제0000-서울-0000호<br>
       CS : 010-1234-5678 &nbsp;&nbsp;&nbsp;
-      Address : 강원도 춘천시 중앙로1277번길 17 (죽림동)<br>
-      Personal Information Officer : 이은지 (not_yet@naver.com)
+      Address : 서울 용산구 한강대로 405 (동자동)<br>
+      Personal Information Officer : 홍길동 (not_yet@naver.com)
     </div>
 
-    <div style="margin-top:20px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
+    <div style="margin-top:25px; font-size:12px;">© 2025 Bearabley. All rights reserved.</div>
   </footer>
 
   <script>
