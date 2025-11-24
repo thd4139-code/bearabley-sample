@@ -69,7 +69,6 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* 전체 폭 */
     .container {
       max-width: 1300px;
       margin: 0 auto;
@@ -114,14 +113,14 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
-    /* 상품 컨트롤 (ALL 아래 간격 증가) */
+    /* ALL → 상품컨트롤 간격 2배 */
     .product-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      margin-top: 60px;    /* ★ 기존 40px → 60px 더 띄움 */
-      margin-bottom: 40px; /* 상품 이미지와도 간격 확보 */
+      margin-top: 60px;    /* 기존 40 → 60 */
+      margin-bottom: 40px;
     }
     .product-controls b { color: #59351D; }
 
@@ -138,35 +137,30 @@
       cursor: pointer;
     }
 
-    /* 상품 목록 */
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-top: 50px;   /* 콤보박스와 상품 간 간격 증가 */
+      margin-top: 50px;
       max-width: 1300px;
       margin: 0 auto 300px;
     }
 
-    /* 상품 이미지 */
     .product .thumb {
       width: 100%;
       height: 0;
-
-      padding-top: 115%;   /* 세로 길게 유지 */
-
+      padding-top: 115%;
       background-size: cover;
       background-position: center;
       background-color: #fff;
 
-      margin-bottom: 40px; /* ★ 이미지 ↔ 가격 간격 더 넓힘 */
+      margin-bottom: 40px; /* 이미지→가격 간격 확장 */
 
       position: relative;
 
-      border-radius: 0;    /* ★ 라운드 제거 */
+      border-radius: 0;
     }
 
-    /* 장바구니 hover */
     .cart-icon {
       position: absolute;
       top: 50%; left: 50%;
@@ -191,6 +185,7 @@
       font-weight: 700;
       margin-bottom: 6px;
     }
+
     .price {
       font-size: 14px;
       color: #555;
@@ -317,7 +312,7 @@
     <a style="font-weight:bold;">Instagram</a>
   </div>
 
-  <div style="margin-top:35px; line-height:1.9; font-size:12px;">
+  <div style="margin-top:20px; line-height:1.9; font-size:12px;">
     Company : Bearabley &nbsp;&nbsp;&nbsp;
     Owner : 대표 관리자 &nbsp;&nbsp;&nbsp;
     Business License : 000-00-00000 &nbsp;&nbsp;&nbsp;
