@@ -67,7 +67,7 @@
     }
     #cart-icon.has-items::after { display: inline-block; }
 
-    /* ★ 가로폭 40px 축소 */
+    /* 가로폭 40px 축소 */
     .container {
       max-width: 1140px;
       margin: 0 auto;
@@ -97,8 +97,10 @@
       font-weight: 700;
       color: #5C4A1D;
       text-decoration: none;
+      cursor: default;
     }
 
+    /* 메뉴 아래 ALL 간격 넓힘 유지 */
     .category-label {
       text-align: center;
       margin-top: 60px;
@@ -107,12 +109,17 @@
       font-family: 'Cafe24SsurroundAir';
     }
 
+    /* ALL → 상품정렬 */
     .product-controls {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 60px;
       margin-bottom: 40px;
+    }
+    .product-controls b {
+      color: #59351D;  /* 숫자 색 복구 */
+      font-weight: 700;
     }
 
     select {
@@ -128,6 +135,7 @@
       cursor: pointer;
     }
 
+    /* 상품 카드 가로 간격 좁힘 */
     .products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -143,9 +151,7 @@
       background-size: cover;
       background-position: center;
       background-color: #fff;
-
       margin-bottom: 10px;
-
       position: relative;
       border-radius: 0;
     }
@@ -176,6 +182,7 @@
     .price {
       font-size: 14px;
       color: #555;
+      font-family: 'Cafe24SsurroundAir'; /* 가격 슬림체 복구 */
       margin-bottom: 50px;
     }
 
@@ -184,6 +191,18 @@
       font-size: 14px;
       color: #666;
       padding-bottom: 120px;
+    }
+
+    /* ★ footer 링크 복구 */
+    .footer-links {
+      display: flex;
+      gap: 55px;
+      margin-bottom: 35px;
+    }
+    .footer-links a {
+      color: #111 !important;
+      text-decoration: none !important;
+      cursor: default !important;
     }
 
   </style>
@@ -294,6 +313,15 @@
 </div>
 
 <footer class="container">
+
+  <!-- ★ footer 링크 복구 -->
+  <div class="footer-links">
+    <a>Agreement</a>
+    <a>Privacy</a>
+    <a>Guide</a>
+    <a style="font-weight:bold;">Instagram</a>
+  </div>
+
   <div style="margin-top:20px; line-height:1.9; font-size:12px;">
     Company : Bearabley<br>
     Owner : 대표 관리자<br>
